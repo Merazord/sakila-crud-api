@@ -29,7 +29,7 @@ class CategoryController extends Controller
     {
         $id = $request->id;
         $category = Category::find($id);
-        $category->name = $request->city;
+        $category->name = $request->name;
         $category->save();
     }
     
