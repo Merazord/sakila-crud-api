@@ -39,4 +39,12 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
     }
+
+    public function count() {
+        $count = Category::count();
+        return response()->json([
+            'status' => true,
+            'count' => $count
+        ]);
+    }
 }

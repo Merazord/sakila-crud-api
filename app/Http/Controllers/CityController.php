@@ -41,4 +41,12 @@ class CityController extends Controller
         $city = City::find($id);
         $city->delete();
     }
+
+    public function count() {
+        $count = City::count();
+        return response()->json([
+            'status' => true,
+            'count' => $count
+        ]);
+    }
 }

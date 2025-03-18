@@ -23,7 +23,6 @@ class FilmController extends Controller
         $film->description = $request->description;
         $film->release_year = $request->release_year;
         $film->length = $request->length;
-        $film->rating = $request->rating;
         $film->language_id = 1;
         $film->save();
         return response()->json(['film' => $film], 200);
@@ -37,7 +36,6 @@ class FilmController extends Controller
         $film->description = $request->description;
         $film->release_year = $request->release_year;
         $film->length = $request->length;
-        $film->rating = $request->rating;
         $film->language_id = 1;
         $film->save();
     }
@@ -48,4 +46,13 @@ class FilmController extends Controller
         $film = Film::find($id);
         $film->delete();
     }
+
+    public function count() {
+        $count = Film::count();
+        return response()->json([
+            'status' => true,
+            'count' => $count
+        ]);
+    }
+
 }

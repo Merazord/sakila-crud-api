@@ -56,6 +56,13 @@ class ActorController extends Controller
         $id= $request->id;
         $actor = Actor::find($id);
         $actor->delete();
+    }
 
+    public function count() {
+        $count = Actor::count();
+        return response()->json([
+            'status' => true,
+            'count' => $count
+        ]);
     }
 }

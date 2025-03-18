@@ -26,20 +26,25 @@ Route::get('actors', [ActorController::class, 'index']);
 Route::post('actor/create', [ActorController::class, 'create']);
 Route::post('actor/delete', [ActorController::class, 'delete']);
 Route::post('actor/edit', [ActorController::class, 'edit']);
-
+Route::get('actors/count', [ActorController::class, 'count']);
 
 Route::get('films', [FilmController::class, 'index']);
 Route::post('film/create', [FilmController::class, 'create']);
 Route::post('film/delete', [FilmController::class, 'delete']);
 Route::post('film/edit', [FilmController::class, 'edit']);
+Route::get('films/count', [FilmController::class, 'count']);
 
 Route::get('cities', [CityController::class, 'index']);
 Route::post('city/create', [CityController::class, 'create']);
 Route::post('city/delete', [CityController::class, 'delete']);
 Route::post('city/edit', [CityController::class, 'edit']);
+Route::get('cities/count', [CityController::class, 'count']);
+
 
 Route::get('categories', [CategoryController::class, 'index']);
 Route::post('category/create', [CategoryController::class, 'create']);
 Route::post('category/delete', [CategoryController::class, 'delete']);
 Route::post('category/edit', [CategoryController::class, 'edit']);
+Route::get('categories/count', [CategoryController::class, 'count']);
+
 
