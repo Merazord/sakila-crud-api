@@ -12,7 +12,7 @@ class FilmController extends Controller
         $film = new Film();
         return response()->json([
             'status' => true,
-            'films' => $film::orderBy('film_id', 'desc')->take(25)->get()
+            'films' => $film::all()
         ]);
     }
 
@@ -54,5 +54,4 @@ class FilmController extends Controller
             'count' => $count
         ]);
     }
-
 }

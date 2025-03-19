@@ -3,9 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActorController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CityController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\ViewController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,17 +36,23 @@ Route::post('film/delete', [FilmController::class, 'delete']);
 Route::post('film/edit', [FilmController::class, 'edit']);
 Route::get('films/count', [FilmController::class, 'count']);
 
-Route::get('cities', [CityController::class, 'index']);
-Route::post('city/create', [CityController::class, 'create']);
-Route::post('city/delete', [CityController::class, 'delete']);
-Route::post('city/edit', [CityController::class, 'edit']);
-Route::get('cities/count', [CityController::class, 'count']);
+Route::get('addresses', [AddressController::class, 'index']);
+Route::post('address/create', [AddressController::class, 'create']);
+Route::post('address/delete', [AddressController::class, 'delete']);
+Route::post('address/edit', [AddressController::class, 'edit']);
+Route::get('addresses/count', [AddressController::class, 'count']);
 
 
-Route::get('categories', [CategoryController::class, 'index']);
-Route::post('category/create', [CategoryController::class, 'create']);
-Route::post('category/delete', [CategoryController::class, 'delete']);
-Route::post('category/edit', [CategoryController::class, 'edit']);
-Route::get('categories/count', [CategoryController::class, 'count']);
+Route::get('customers', [CustomerController::class, 'index']);
+Route::post('customer/create', [CustomerController::class, 'create']);
+Route::post('customer/delete', [CustomerController::class, 'delete']);
+Route::post('customer/edit', [CustomerController::class, 'edit']);
+Route::get('customers/count', [CustomerController::class, 'count']);
+
+Route::get('countries', [ViewController::class, 'countries']);
+Route::get('cities', [ViewController::class, 'cities']);
+
+
+
 
 

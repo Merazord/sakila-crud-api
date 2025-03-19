@@ -9,7 +9,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class City extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     protected $table = 'city';
-    protected  $primaryKey = 'city_id';
 }
