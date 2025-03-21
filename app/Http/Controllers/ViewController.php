@@ -1,27 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use App\Models\Address;
+
+use App\Models\Category;
 use App\Models\Country;
 use App\Models\Customer;
 use App\Models\City;
-
-
-
-
-use Illuminate\Http\Request;
+use App\Models\Inventory;
+use App\Models\Language;
+use App\Models\Payment;
+use App\Models\Rental;
+use App\Models\Staff;
+use App\Models\Store;
 
 class ViewController extends Controller
 {
-
-    public function addresses()
+    public function categories()
     {
-        $address = new Address();
+        $category = new Category();
         return response()->json([
             'status' => true,
-            'addresses' => $address::all()
+            'categories' => $category::all()
         ]);
     }
 
@@ -52,5 +51,57 @@ class ViewController extends Controller
         ]);
     }
 
-    
+    public function inventories()
+    {
+        $inventory = new Inventory();
+        return response()->json([
+            'status' => true,
+            'inventories' => $inventory::all()
+        ]);
+    }
+
+    public function languages()
+    {
+        $language = new Language();
+        return response()->json([
+            'status' => true,
+            'languages' => $language::all()
+        ]);
+    }
+
+    public function payments()
+    {
+        $payment = new Payment();
+        return response()->json([
+            'status' => true,
+            'payments' => $payment::all()
+        ]);
+    }
+
+    public function rentals()
+    {
+        $rental = new Rental();
+        return response()->json([
+            'status' => true,
+            'rentals' => $rental::all()
+        ]);
+    }
+
+    public function staff()
+    {
+        $staff = new Staff();
+        return response()->json([
+            'status' => true,
+            'staff' => $staff::all()
+        ]);
+    }
+
+    public function stores()
+    {
+        $store = new Store();
+        return response()->json([
+            'status' => true,
+            'stores' => $store::all()
+        ]);
+    }
 }

@@ -49,10 +49,12 @@ Route::post('customer/delete', [CustomerController::class, 'delete']);
 Route::post('customer/edit', [CustomerController::class, 'edit']);
 Route::get('customers/count', [CustomerController::class, 'count']);
 
+Route::get('categories', [ViewController::class, 'categories']);
 Route::get('countries', [ViewController::class, 'countries']);
 Route::get('cities', [ViewController::class, 'cities']);
-
-
-
-
-
+Route::get('inventories', [ViewController::class, 'inventories']);
+Route::get('languages', [ViewController::class, 'languages']);
+Route::get('payments', [ViewController::class, 'payments']);
+Route::get('rentals', [ViewController::class, 'rentals']);
+Route::get('staff', [ViewController::class, 'staff']);
+Route::get('stores', [ViewController::class, 'stores']);

@@ -20,9 +20,13 @@ class AddressController extends Controller
     {
         $address = new Address();
         $address->address = $request->address;
-        $address->address_id = 60;
+        $address->address2 = $request->address2 ?? null;
+        $address->district = $request->district;
+        $address->city_id = $request->city_id;
+        $address->postal_code = $request->postal_code;
+        $address->phone = $request->phone;
         $address->save();
-        return response()->json(['address'=>$address],200);
+        return response()->json(['address' => $address], 200);
     }
 
 
@@ -31,18 +35,23 @@ class AddressController extends Controller
         $id = $request->id;
         $address = Address::find($id);
         $address->address = $request->address;
-        $address->address_id = 60;
+        $address->address2 = $request->address2 ?? null;
+        $address->district = $request->district;
+        $address->city_id = $request->city_id;
+        $address->postal_code = $request->postal_code;
+        $address->phone = $request->phone;
         $address->save();
     }
-    
+
     public function delete(Request $request)
     {
-        $id= $request->id;
+        $id = $request->id;
         $address = Address::find($id);
         $address->delete();
     }
 
-    public function count() {
+    public function count()
+    {
         $count = Address::count();
         return response()->json([
             'status' => true,

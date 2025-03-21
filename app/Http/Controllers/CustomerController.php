@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -19,8 +20,13 @@ class CustomerController extends Controller
     public function create(Request $request)
     {
         $customer = new Customer();
-        $customer->name = $request->name;
-        $customer->timestamps = false;
+        $customer->store_id = $request->store_id;
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->email = $request->email;
+        $customer->address_id = $request->address_id;
+        $customer->active = 1;
+        $customer->create_date = now();
         $customer->save();
         return response()->json(['customer' => $customer], 200);
     }
@@ -29,18 +35,25 @@ class CustomerController extends Controller
     {
         $id = $request->id;
         $customer = Customer::find($id);
-        $customer->name = $request->name;
+        $customer->store_id = $request->store_id;
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->email = $request->email;
+        $customer->address_id = $request->address_id;
+        $customer->active = 1;
+        $customer->create_date = now();
         $customer->save();
     }
-    
+
     public function delete(Request $request)
     {
-        $id= $request->id;
+        $id = $request->id;
         $customer = Customer::find($id);
         $customer->delete();
     }
 
-    public function count() {
+    public function count()
+    {
         $count = Customer::count();
         return response()->json([
             'status' => true,

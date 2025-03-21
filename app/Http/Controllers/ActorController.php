@@ -36,12 +36,13 @@ class ActorController extends Controller
 
     public function delete(Request $request)
     {
-        $id= $request->id;
+        $id = $request->id;
         $actor = Actor::find($id);
         $actor->delete();
     }
 
-    public function count() {
+    public function count()
+    {
         $count = Actor::count();
         return response()->json([
             'status' => true,
