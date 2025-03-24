@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 
 class FilmController extends Controller
 {
-    public function index()
+    public function index( $page )
     {
+
+
         $film = new Film();
         return response()->json([
             'status' => true,
-            'films' => $film::all()
+            'films' => $film::skip( $page*10 )->take( 10)->get()
+
+            //'films' => $film::all()
         ]);
     }
 
@@ -30,7 +34,7 @@ class FilmController extends Controller
 
     public function edit(Request $request)
     {
-        $id = $request->id;
+        $id = $request->film_id;
         $film = Film::find($id);
         $film->title = $request->title;
         $film->description = $request->description;

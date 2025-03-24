@@ -7,15 +7,25 @@ use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
-    public function index()
+    public function index( $page )
     {
+
+        $address = new Address();
+        return response()->json([
+            'status' => true,
+            'addresses' => $address::join('city','city.city_id','address.city_id')->skip( $page*10 )->take( 10)->get()
+            // 'addresses' => $address::all()
+        ]);
+    }
+
+    
+    public function select_display () {
         $address = new Address();
         return response()->json([
             'status' => true,
             'addresses' => $address::all()
         ]);
     }
-
     public function create(Request $request)
     {
         $address = new Address();

@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index( $page )
     {
         $customer = new Customer();
         return response()->json([
             'status' => true,
-            'customers' => $customer::all()
+            'customers' => $customer::join('address','address.address_id','customer.address_id')->skip( $page*10 )->take( 10)->get()
+            // 'customers' => $customer::all()
         ]);
     }
 
